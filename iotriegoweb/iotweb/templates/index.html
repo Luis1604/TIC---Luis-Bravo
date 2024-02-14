@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOT Humedad</title>
+    {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'images/iot.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <img src="{% static 'images/unl.png' %}" alt="Logo">
+    </header>
+    <div class="container">
+        <h1>Datos de Humedad</h1>
+        <p>Humedad recibida nodo 1: <span id="nodo1" class="humedad-value">{{ Nodo1 }}</span></p>
+        <p>Humedad recibida nodo 2: <span id="nodo2" class="humedad-value">{{ Nodo2 }}</span></p>
+        <p>Humedad recibida nodo 3: <span id="nodo3" class="humedad-value">{{ Nodo3 }}</span></p>
+    </div>
+
+    <script>
+        // Función para actualizar los valores de los nodos
+        function updateValues() {
+            // Actualizar los valores en el HTML
+            document.getElementById('nodo1').innerText = valores.Nodo1.toFixed(2);
+            document.getElementById('nodo2').innerText = valores.Nodo2.toFixed(2);
+            document.getElementById('nodo3').innerText = valores.Nodo3.toFixed(2);
+        }
+        // Actualizar los valores cada 3 segundos
+        setInterval(updateValues, 2000);
+    </script>
+</body>
+</html>
